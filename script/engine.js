@@ -558,7 +558,7 @@
           title: _('Go Hyper?'),
           scenes: {
             start: {
-              text: [_('turning hyper mode speeds up the game to x2 speed. do you want to do that?')],
+              text: [_('turning hyper mode speeds up the game to x4 speed. do you want to do that?')],
               buttons: {
                 'yes': {
                   text: _('yes'),

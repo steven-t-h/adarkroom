@@ -5,22 +5,22 @@ var Outside = {
 	name: _("Outside"),
 	
 	_STORES_OFFSET: 0,
-	_GATHER_DELAY: 60,
-	_TRAPS_DELAY: 90,
+	_GATHER_DELAY: 15,
+	_TRAPS_DELAY: 30,
 	_POP_DELAY: [0.5, 3],
 	_HUT_ROOM: 4,
-	
+	_INCOME_DELAY: 5,
 	_INCOME: {
 		'gatherer': {
 			name: _('gatherer'),
-			delay: 10,
+			delay: _INCOME_DELAY,
 			stores: {
 				'wood': 1
 			}
 		},
 		'hunter': {
 			name: _('hunter'),
-			delay: 10,
+			delay: _INCOME_DELAY,
 			stores: {
 				'fur': 0.5,
 				'meat': 0.5
@@ -28,7 +28,7 @@ var Outside = {
 		},
 		'trapper': {
 			name: _('trapper'),
-			delay: 10,
+			delay: _INCOME_DELAY,
 			stores: {
 				'meat': -1,
 				'bait': 1
@@ -36,7 +36,7 @@ var Outside = {
 		},
 		'tanner': {
 			name: _('tanner'),
-			delay: 10,
+			delay: _INCOME_DELAY,
 			stores: {
 				'fur': -5,
 				'leather': 1
@@ -44,7 +44,7 @@ var Outside = {
 		},
 		'charcutier': {
 			name: _('charcutier'),
-			delay: 10,
+			delay: _INCOME_DELAY,
 			stores: {
 				'meat': -5,
 				'wood': -5,
@@ -53,7 +53,7 @@ var Outside = {
 		},
 		'iron miner': {
 			name: _('iron miner'),
-			delay: 10,
+			delay: _INCOME_DELAY,
 			stores: {
 				'cured meat': -1,
 				'iron': 1
@@ -61,7 +61,7 @@ var Outside = {
 		},
 		'coal miner': {
 			name: _('coal miner'),
-			delay: 10,
+			delay: _INCOME_DELAY,
 			stores: {
 				'cured meat': -1,
 				'coal': 1
@@ -69,7 +69,7 @@ var Outside = {
 		},
 		'sulphur miner': {
 			name: _('sulphur miner'),
-			delay: 10,
+			delay: _INCOME_DELAY,
 			stores: {
 				'cured meat': -1,
 				'sulphur': 1
@@ -77,7 +77,7 @@ var Outside = {
 		},
 		'steelworker': {
 			name: _('steelworker'),
-			delay: 10,
+			delay: _INCOME_DELAY,
 			stores: {
 				'iron': -1,
 				'coal': -1,
@@ -86,7 +86,7 @@ var Outside = {
 		},
 		'armourer': {
 			name: _('armourer'),
-			delay: 10,
+			delay: _INCOME_DELAY,
 			stores: {
 				'steel': -1,
 				'sulphur': -1,
