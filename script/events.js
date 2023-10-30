@@ -361,7 +361,7 @@ var Events = {
 		var weapon = World.Weapons[weaponName];
 		var cd = weapon.cooldown;
 		if(weapon.type == 'unarmed') {
-			if($SM.hasPerk('unarmed master')) {
+			if($SM.hasPerk('unarmed master')) { // 50% faster if you're an unarmed master
 				cd /= 2;
 			}
 		}
@@ -470,7 +470,7 @@ var Events = {
 			var weaponName = btn.attr('id').substring(7).replace(/-/g, ' ');
 			var weapon = World.Weapons[weaponName];
 			if(weapon.type == 'unarmed') {
-				if(!$SM.get('character.punches')) $SM.set('character.punches', 0);
+				if(!$SM.get('character.punches')) $SM.set('character.punches', 49); //Set to 49 immediately to skip 
 				$SM.add('character.punches', 1);
 				if($SM.get('character.punches') == 50 && !$SM.hasPerk('boxer')) {
 					$SM.addPerk('boxer');
@@ -535,9 +535,9 @@ var Events = {
 					}
 				}
 			}
-			
+
 			var attackFn = weapon.type == 'ranged' ? Events.animateRanged : Events.animateMelee;
-			
+
 			// play variation audio for weapon type
 			var r = Math.floor(Math.random() * 2) + 1;
 			switch (weapon.type) {

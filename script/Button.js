@@ -103,7 +103,7 @@ var Button = {
 			}
 			var time = start;
 			if (Engine.options.doubleTime){
-				time /= 2;
+				time /= 4;
 			}
 			$('div.cooldown', btn).width(left * 100 +"%").animate({width: '0%'}, time * 1000, 'linear', function() {
 				Button.clearCooldown(btn, true);

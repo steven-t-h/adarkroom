@@ -498,7 +498,7 @@ var World = {
         } else {
           $SM.set('character.starved', $SM.get('character.starved', true));
           $SM.add('character.starved', 1);
-          if($SM.get('character.starved') >= 10 && !$SM.hasPerk('slow metabolism')) {
+          if($SM.get('character.starved') >= 1 && !$SM.hasPerk('slow metabolism')) { //give slow metabolism on first starvation event.
             $SM.addPerk('slow metabolism');
           }
           World.die();
@@ -527,7 +527,7 @@ var World = {
         } else {
           $SM.set('character.dehydrated', $SM.get('character.dehydrated', true));
           $SM.add('character.dehydrated', 1);
-          if($SM.get('character.dehydrated') >= 10 && !$SM.hasPerk('desert rat')) {
+          if($SM.get('character.dehydrated') >= 1 && !$SM.hasPerk('desert rat')) { //immidiately give on first dehydration event.
             $SM.addPerk('desert rat');
           }
           World.die();
@@ -543,7 +543,7 @@ var World = {
   },
 
   meatHeal: function() {
-    return World.MEAT_HEAL * ($SM.hasPerk('gastronome') ? 2 : 1);
+    return World.MEAT_HEAL * ($SM.hasPerk('gastronome') ? 4 : 2); //gastronome is now twice as good.
   },
 
   medsHeal: function() {
@@ -557,7 +557,7 @@ var World = {
     World.fightMove++;
     if(World.fightMove > World.FIGHT_DELAY) {
       var chance = World.FIGHT_CHANCE;
-      chance *= $SM.hasPerk('stealthy') ? 0.5 : 1;
+      chance *= $SM.hasPerk('stealthy') ? 0.5 : 1; //When stealthy, only a 50% chance of being attacked
       if(Math.random() < chance) {
         World.fightMove = 0;
         Events.triggerFight();
@@ -649,7 +649,7 @@ var World = {
 
   lightMap: function(x, y, mask) {
     var r = World.LIGHT_RADIUS;
-    r *= $SM.hasPerk('scout') ? 2 : 1;
+    r *= $SM.hasPerk('scout') ? 2 : 1; //Control how much of the map is revealed
     World.uncoverMap(x, y, r, mask);
     return mask;
   },
@@ -1038,7 +1038,7 @@ var World = {
 
   getHitChance: function() {
     if($SM.hasPerk('precise')) {
-      return World.BASE_HIT_CHANCE + 0.1;
+      return World.BASE_HIT_CHANCE + 0.1; // 10% bonus if you're precise
     }
     return World.BASE_HIT_CHANCE;
   },
